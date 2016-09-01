@@ -2,8 +2,6 @@ package com.udacity.gradle.builditbigger;
 
 import org.junit.Test;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.assertNotNull;
 
 
@@ -16,9 +14,9 @@ public class AsyncTaskTest {
 
     @Test
     public void testAsyncTask() throws Exception {
-        EndpointsAsyncTask blah = new EndpointsAsyncTask();
-        blah.execute();
-        String joke = blah.get(30, TimeUnit.SECONDS);
+        EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask();
+        endpointsAsyncTask.execute();
+        String joke = endpointsAsyncTask.get();
         assertNotNull(joke);
 
     }
