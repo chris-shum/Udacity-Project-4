@@ -1,23 +1,21 @@
 package com.udacity.gradle.builditbigger;
 
-import org.junit.Test;
+import android.test.InstrumentationTestCase;
 
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
 
 
 /**
  * Created by ShowMe on 8/31/16.
  */
 
-public class AsyncTaskTest {
-
+public class AsyncTaskTest extends InstrumentationTestCase{
 
     @Test
     public void testAsyncTask() throws Exception {
         EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask();
-        endpointsAsyncTask.execute();
+        endpointsAsyncTask.execute(getInstrumentation().getContext());
         String joke = endpointsAsyncTask.get();
         assertNotNull(joke);
-
     }
 }
