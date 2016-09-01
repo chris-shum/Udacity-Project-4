@@ -11,6 +11,10 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        testApplicationId "com.udacity.gradle.builditbigger.test"
+        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+
     }
     buildTypes {
         release {
@@ -18,14 +22,33 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+            buildConfigField "boolean", "free", "true"
+
+        }
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+            buildConfigField "boolean", "free", "false"
+
+
+        }
+
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     // Added for AdMob
     compile project(':javaJokes')
     compile project(':mylibrary')
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.google.android.gms:play-services-ads:9.4.0'
     compile project(path: ':backend', configuration: 'android-endpoints')
+
+    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+
+
 }
