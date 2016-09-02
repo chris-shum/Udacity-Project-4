@@ -19,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view) throws ExecutionException, InterruptedException {
-                new EndpointsAsyncTask().execute();
+                new EndpointsAsyncTask().execute(this);
 
     }
 }

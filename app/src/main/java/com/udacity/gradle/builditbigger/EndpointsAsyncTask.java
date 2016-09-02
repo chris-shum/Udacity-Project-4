@@ -41,6 +41,7 @@ class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
 //            // end options for devappserver
 
             myApiService = builder.build();
+            //comment out below during tests
             context = params[0];
         }
 
@@ -54,6 +55,8 @@ class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+
+        //comment out below during tests
 
         Intent intent = new Intent(context, JokeActivity.class);
         intent.putExtra("Joke", s);

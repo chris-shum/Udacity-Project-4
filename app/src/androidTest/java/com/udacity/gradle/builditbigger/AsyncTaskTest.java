@@ -10,12 +10,11 @@ import org.junit.Test;
  */
 
 public class AsyncTaskTest extends InstrumentationTestCase{
-
+    //must comment out certain sections in endpointsasynctask before running test
     @Test
     public void testAsyncTask() throws Exception {
         EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask();
-        endpointsAsyncTask.execute(getInstrumentation().getContext());
-        String joke = endpointsAsyncTask.get();
+        String joke = endpointsAsyncTask.execute().get();
         assertNotNull(joke);
     }
 }
